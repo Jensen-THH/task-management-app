@@ -1,0 +1,9 @@
+<h2>Đăng ký</h2>
+<form (ngSubmit)="register()">
+  <input type="email" [(ngModel)]="email"  name="email" placeholder="Email" required />
+  <input type="password" [(ngModel)]="password" name="password"  placeholder="Mật khẩu" required />
+  <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword"  placeholder="Nhập lại mật khẩu" required />
+  <button type="submit">Đăng ký</button>
+  <p *ngIf="error" style="color: red">{{ error }}</p>
+</form>
+<p>Đã có tài khoản? <a routerLink="/login">Đăng nhập</a></p> 

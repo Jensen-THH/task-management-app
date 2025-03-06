@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "task-managementApp": {
+    "task-management-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "task-managementApp:build:production"
+              "buildTarget": "task-management-app:build:production"
             },
             "development": {
-              "buildTarget": "task-managementApp:build:development"
+              "buildTarget": "task-management-app:build:development"
             }
           },
           "defaultConfiguration": "development"
