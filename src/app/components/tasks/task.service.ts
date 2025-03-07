@@ -19,6 +19,9 @@ export class TaskService {
           if (data['createdAt'] && 'seconds' in data['createdAt']) {
             data['createdAt'] = new Date(data['createdAt'].seconds * 1000 + data['createdAt'].nanoseconds / 1000000);
           }
+          if (data['timeUpdate'] && 'seconds' in data['timeUpdate']) {
+            data['timeUpdate'] = new Date(data['timeUpdate'].seconds * 1000 + data['timeUpdate'].nanoseconds / 1000000);
+          }
           return { taskId: doc.id, ...data } as Task;
         });
         observer.next(tasks);
