@@ -22,7 +22,7 @@ export class TaskService {
           if (data['timeUpdate'] && 'seconds' in data['timeUpdate']) {
             data['timeUpdate'] = new Date(data['timeUpdate'].seconds * 1000 + data['timeUpdate'].nanoseconds / 1000000);
           }
-          return { taskId: doc.id, ...data } as Task;
+          return { id: doc.id, ...data } as Task;
         });
         observer.next(tasks);
       }, (error) => {
@@ -39,14 +39,14 @@ export class TaskService {
   }
 
   // Xóa task
-  deleteTask(taskId: string) {
-    const taskDoc = doc(this.firestore, 'tasks', taskId);
+  deleteTask(id: string) {
+    const taskDoc = doc(this.firestore, 'tasks', id);
     return deleteDoc(taskDoc);
   }
 
   // Update task
-  updateTask(taskId: string, task: Partial<Task>) {
-    const taskDoc = doc(this.firestore, 'tasks', taskId);
+  updateTask(id: string, task: Partial<Task>) {
+    const taskDoc = doc(this.firestore, 'tasks', id);
     return updateDoc(taskDoc, task);
   }
 }

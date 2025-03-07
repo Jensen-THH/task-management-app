@@ -5,7 +5,7 @@ import { TaskService } from './task.service';
 import { FormsModule } from '@angular/forms';
 
 export interface Task {
-  taskId?: any;
+  id?: any;
   title: string;
   createdAt: Date;
   timeUpdate?: Date;
@@ -40,12 +40,12 @@ export class TasksComponent {
     });
   }
 
-  deleteTask(taskId: string) {
+  deleteTask(id: string) {
     if (!confirm('Are you sure you want to delete this task?')) {
       return;
     }
 
-    this.taskService.deleteTask(taskId).then(() => {
+    this.taskService.deleteTask(id).then(() => {
     }).catch((error) => {
       console.error('Error deleting task:', error);
     });
@@ -63,7 +63,7 @@ export class TasksComponent {
 
   saveEditTask(task: Task) {
     task.timeUpdate = new Date();
-    this.taskService.updateTask(task.taskId, task).then(() => {
+    this.taskService.updateTask(task.id, task).then(() => {
       this.isEdit = false;
       this.editTaskValue = {} as Task;
     }).catch((error) => {

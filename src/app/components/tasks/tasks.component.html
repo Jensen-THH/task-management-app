@@ -6,7 +6,7 @@
     <li *ngFor="let task of tasks$ | async">
       <span style="color: red;">{{ task.title }}</span> - {{ task?.createdAt | date: 'medium' }} - {{ task?.timeUpdate |
       date : 'medium' }}
-      <button (click)="deleteTask(task?.taskId)">Delete</button>
+      <button (click)="deleteTask(task?.id)">Delete</button>
 
       <button (click)="editTask(task)">Edit</button>
     </li>
