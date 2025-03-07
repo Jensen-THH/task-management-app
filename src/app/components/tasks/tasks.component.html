@@ -1,0 +1,10 @@
+<div>
+    <input type="text" [(ngModel)]="newTask.title" placeholder="Task title" />
+    <button (click)="addTask()">Add Task</button>
+  
+    <ul>
+      <li *ngFor="let task of tasks$ | async">
+        <span style="color: red;">{{ task.title }}</span> - {{ task?.createdAt | date: 'medium' }}
+      </li>
+    </ul>
+  </div>
